@@ -1,0 +1,6 @@
+/* Strabismus AI ↔ Stellar bridge */
+#tool .neu-container{max-width:980px;margin:0 auto;}
+#tool .neu-card{margin:1rem 0}
+.sai-sticky{z-index:10020}
+#sai-sheet{z-index:10030}
+#sai-parks{z-index:10040}

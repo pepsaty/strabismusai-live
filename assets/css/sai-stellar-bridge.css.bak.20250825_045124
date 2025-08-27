@@ -1,0 +1,62 @@
+/* Strabismus AI ↔ Stellar bridge */
+#tool .neu-container{max-width:980px;margin:0 auto;}
+#tool .neu-card{margin:1rem 0}
+.sai-sticky{z-index:10020}
+#sai-sheet{z-index:10030}
+#sai-parks{z-index:10040}
+/* SAI FONT SCALE START ********************************************/
+/* Scope: Tool only (article#tool) — keeps Stellar shell unchanged */
+article#tool {
+  /* Base size scales with viewport width, clamped for usability */
+  --sai-base: clamp(17px, 1.1vw + 14px, 22px);
+  font-size: var(--sai-base);
+}
+
+/* Headings scale relatively so cards and labels stay balanced */
+article#tool h1 { font-size: 1.80em; line-height: 1.15; }
+article#tool h2 { font-size: 1.45em; line-height: 1.20; }
+article#tool h3 { font-size: 1.22em; line-height: 1.25; }
+
+/* Form controls & outputs */
+article#tool .neu-input,
+article#tool select.neu-input,
+article#tool .neu-button,
+article#tool .neu-output {
+  font-size: 1.06em;
+}
+
+article#tool label { font-size: 1.00em; }
+
+/* Make tap targets breathe a bit with larger type */
+article#tool .neu-input,
+article#tool select.neu-input { padding: .625rem .75rem; }
+article#tool .neu-button { padding: .55rem .9rem; }
+
+/* Tags & small UI bits */
+article#tool #dxTags .tag { font-size: .95em; }
+article#tool .thanks-card { font-size: .98em; }
+
+/* Sticky summary bar (top) */
+.sai-sticky { height: 52px; }
+.sai-sticky .dx { font-size: 15.5px; }
+.sai-donut { width: 32px; height: 32px; }
+
+/* Progress + labels */
+article#tool #confLabel { font-size: 1.00em; }
+article#tool progress { height: 10px; }
+
+/* Keep grid cards from feeling cramped after scaling */
+article#tool .neu-card { line-height: 1.45; }
+
+/* Slightly larger calculator labels/outputs for readability */
+article#tool [aria-labelledby="calc-title"] label { font-size: 1.02em; }
+article#tool #hirOut,
+article#tool #acaOut { font-size: 1.06em; }
+
+/* Ensure font-size inheritance inside cards/grids */
+article#tool .header,
+article#tool .neu-card,
+article#tool .grid-2,
+article#tool .grid-3,
+article#tool .grid-4 { font-size: 1em; }
+/* SAI FONT SCALE END **********************************************/

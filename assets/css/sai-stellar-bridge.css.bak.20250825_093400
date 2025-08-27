@@ -1,0 +1,223 @@
+/* Strabismus AI ↔ Stellar bridge */
+#tool .neu-container{max-width:980px;margin:0 auto;}
+#tool .neu-card{margin:1rem 0}
+.sai-sticky{z-index:10020}
+#sai-sheet{z-index:10030}
+#sai-parks{z-index:10040}
+/* SAI FONT SCALE START ********************************************/
+/* Scope: Tool only (article#tool) — keeps Stellar shell unchanged */
+article#tool {
+  /* Base size scales with viewport width, clamped for usability */
+  --sai-base: clamp(17px, 1.1vw + 14px, 22px);
+  font-size: var(--sai-base);
+}
+
+/* Headings scale relatively so cards and labels stay balanced */
+article#tool h1 { font-size: 1.80em; line-height: 1.15; }
+article#tool h2 { font-size: 1.45em; line-height: 1.20; }
+article#tool h3 { font-size: 1.22em; line-height: 1.25; }
+
+/* Form controls & outputs */
+article#tool .neu-input,
+article#tool select.neu-input,
+article#tool .neu-button,
+article#tool .neu-output {
+  font-size: 1.06em;
+}
+
+article#tool label { font-size: 1.00em; }
+
+/* Make tap targets breathe a bit with larger type */
+article#tool .neu-input,
+article#tool select.neu-input { padding: .625rem .75rem; }
+article#tool .neu-button { padding: .55rem .9rem; }
+
+/* Tags & small UI bits */
+article#tool #dxTags .tag { font-size: .95em; }
+article#tool .thanks-card { font-size: .98em; }
+
+/* Sticky summary bar (top) */
+.sai-sticky { height: 52px; }
+.sai-sticky .dx { font-size: 15.5px; }
+.sai-donut { width: 32px; height: 32px; }
+
+/* Progress + labels */
+article#tool #confLabel { font-size: 1.00em; }
+article#tool progress { height: 10px; }
+
+/* Keep grid cards from feeling cramped after scaling */
+article#tool .neu-card { line-height: 1.45; }
+
+/* Slightly larger calculator labels/outputs for readability */
+article#tool [aria-labelledby="calc-title"] label { font-size: 1.02em; }
+article#tool #hirOut,
+article#tool #acaOut { font-size: 1.06em; }
+
+/* Ensure font-size inheritance inside cards/grids */
+article#tool .header,
+article#tool .neu-card,
+article#tool .grid-2,
+article#tool .grid-3,
+article#tool .grid-4 { font-size: 1em; }
+/* SAI FONT SCALE END **********************************************/
+/* SAI HERO TIGHTEN START ******************************************/
+/* Scope: Tool header only */
+article#tool .header.neu-card{
+  /* Slightly tighter padding (works with your larger base font) */
+  padding-top: .85rem !important;
+  padding-bottom: .80rem !important;
+}
+
+/* The hero stack */
+article#tool .header .hero-v3{
+  margin-top: .30em !important;
+  margin-bottom: .48em !important; /* smaller gap before the thanks line */
+}
+
+/* Wordmark itself */
+article#tool .header .hero-v3 .wordmark{
+  margin: 0 !important;
+  line-height: .95 !important;
+}
+
+/* The underline bar under the wordmark */
+article#tool .header .wordmark-underline{
+  margin-top: .22em !important;
+  margin-bottom: .38em !important; /* tighten this to pull thanks closer */
+}
+
+/* “Special Thanks …” pill/card */
+article#tool .header .thanks-card{
+  margin-top: .28em !important;
+  padding: .48rem .70rem !important; /* scale paddings with bigger type */
+  line-height: 1.22 !important;
+  display: inline-flex; align-items: center; gap: .50rem;
+}
+
+/* Responsive nudge: tiny screens tighter; big screens slightly relaxed */
+@media (max-width: 420px){
+  article#tool .header .hero-v3{ margin-top: .22em !important; margin-bottom: .40em !important; }
+  article#tool .header .thanks-card{ margin-top: .22em !important; }
+}
+@media (min-width: 820px){
+  article#tool .header .hero-v3{ margin-bottom: .44em !important; }
+  article#tool .header .thanks-card{ margin-top: .26em !important; }
+}
+/* SAI HERO TIGHTEN END ********************************************/
+/* SAI THANKS WRAP FIX v2 START *****************************************/
+article#tool .header .hero-v3{
+  display:flex; flex-direction:column; align-items:center;
+  gap:.35rem !important; margin:0 !important;
+}
+article#tool .header .thanks-card{
+  display:inline-block !important;
+  text-align:center !important;
+  max-width:min(92vw,720px); white-space:normal !important;
+  padding:.45rem .8rem !important; margin:0 !important;
+  font-size:clamp(13px,2.6vw,16px); line-height:1.25;
+  background:var(--bg); border:1px solid rgba(0,0,0,.06);
+  border-radius:12px; box-shadow:
+    inset 2px 2px 4px var(--shadow-light),
+    inset -2px -2px 4px var(--shadow-dark);
+  /* nuke any grid/flex from earlier skins */
+  grid-template-columns:unset !important; gap:0 !important;
+}
+article#tool .header .thanks-card .icon{
+  width:16px;height:16px;min-width:16px;vertical-align:-2px;margin-right:.4rem;
+}
+article#tool .header .thanks-card .label,
+article#tool .header .thanks-card .names,
+article#tool .header .thanks-card .tail{
+  display:inline !important; margin:0 !important; padding:0 !important;
+}
+/* slightly snug underline */
+article#tool .header .wordmark-underline{ margin:0 !important; transform:translateY(-2px); height:3px; width:150px; max-width:42vw; opacity:.9; }
+/* SAI THANKS WRAP FIX v2 END *******************************************/
+/* SAI HERO v3 START ****************************************************/
+#tool-stellar > header.major{ display:none !important; }       /* hide "Tool" */
+article#tool a.skip-link{ display:none !important; }           /* hide "Skip to results" */
+
+article#tool .header .hero-v3{
+  display:flex; flex-direction:column; align-items:center;
+  gap:.25rem !important; margin:0 !important;
+}
+article#tool .header .wordmark{
+  font-size:clamp(44px, 11vw, 72px) !important;
+  line-height:1.05; letter-spacing:.2px;
+}
+article#tool .header .thanks-card{
+  font-size:clamp(15px, 3.8vw, 19px) !important;
+  line-height:1.25; padding:.6rem .9rem !important; margin:.25rem 0 0 0 !important;
+  border-radius:14px; text-align:center !important; display:inline-block !important;
+}
+/* SAI HERO v3 END ******************************************************/
+/* SAI HERO v3 START ****************************************************/
+#tool-stellar > header.major{ display:none !important; }       /* hide "Tool" */
+article#tool a.skip-link{ display:none !important; }           /* hide "Skip to results" */
+
+article#tool .header .hero-v3{
+  display:flex; flex-direction:column; align-items:center;
+  gap:.25rem !important; margin:0 !important;
+}
+article#tool .header .wordmark{
+  font-size:clamp(44px, 11vw, 72px) !important;
+  line-height:1.05; letter-spacing:.2px;
+}
+article#tool .header .thanks-card{
+  font-size:clamp(15px, 3.8vw, 19px) !important;
+  line-height:1.25; padding:.6rem .9rem !important; margin:.25rem 0 0 0 !important;
+  border-radius:14px; text-align:center !important; display:inline-block !important;
+}
+/* SAI HERO v3 END ******************************************************/
+/* SAI LOGO START *********************************************************/
+#header .sai-logo { background: transparent !important; box-shadow: none !important; border: 0 !important; }
+#header .sai-logo picture { display:block; }
+#header .sai-logo img {
+  width: clamp(72px, 14vw, 110px) !important;
+  height: auto !important;
+  border-radius: 12px;
+  display:block;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+/* SAI LOGO END ***********************************************************/
+/* SAI header trim */
+#tool-stellar > header.major { display:none !important; }
+a.skip-link { display:none !important; }
+/* Heading + thanks */
+.neu-container .wordmark { font-size: clamp(32px, 6.5vw, 56px); letter-spacing:.5px; }
+.thanks-card, .thanks-inline { 
+  font-size: clamp(15px, 3.8vw, 20px);
+  line-height: 1.35;
+  margin: .75rem auto 1.25rem !important;
+  padding: .55rem .8rem;
+  background: var(--bg);
+  color: var(--text-secondary);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+/* SAI logo fix */
+#header .logo{display:inline-block!important;background:none!important;box-shadow:none!important;border:0!important}
+#header .logo img{display:block!important;margin:0 auto!important;width:96px!important;height:96px!important}
+@media (max-width:480px){#header .logo img{width:72px!important;height:72px!important}}
+/* SAI logo fix */
+#header .logo{display:inline-block!important;background:none!important;border:0!important;box-shadow:none!important}
+#header .logo img{display:block!important;margin:0 auto!important;width:96px!important;height:96px!important}
+@media (max-width:480px){#header .logo img{width:72px!important;height:72px!important}}
+/* SAI logo fix */
+#header .logo{display:inline-block!important;background:none!important;border:0!important;box-shadow:none!important}
+#header .logo img{display:block!important;margin:0 auto!important;width:96px!important;height:96px!important}
+@media (max-width:480px){#header .logo img{width:72px!important;height:72px!important}}
+/* SAI logo fix */
+#header .logo{display:inline-block!important;background:none!important;border:0!important;box-shadow:none!important}
+#header .logo img{display:block!important;margin:0 auto!important;width:96px!important;height:96px!important}
+@media (max-width:480px){#header .logo img{width:72px!important;height:72px!important}}
+/* === SAI Splash (full-viewport, above Stellar) === */
+#sai-splash{position:fixed;inset:0;z-index:100000;display:grid;place-items:center;background:#0b0b0b;opacity:1;visibility:visible;transition:opacity .4s ease,visibility .4s ease}
+#sai-splash.hide{opacity:0;visibility:hidden;pointer-events:none}
+#sai-splash video,#sai-splash .fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#sai-splash .layer{position:relative;z-index:2;display:grid;place-items:center;gap:10px;text-align:center;padding:16px}
+#sai-splash .brand{display:grid;place-items:center;gap:8px}
+#sai-splash .brand img{width:clamp(80px,12vw,120px);height:auto;display:block}
+#sai-splash .title{font-weight:800;letter-spacing:.4px;font-size:clamp(18px,4.8vw,28px);color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.45)}
+#sai-splash .skip{margin-top:10px;font-size:13px;border:1px solid rgba(255,255,255,.25);color:#fff;background:rgba(0,0,0,.25);padding:6px 12px;border-radius:999px}
+@media (prefers-reduced-motion:reduce){#sai-splash{transition:none}}
